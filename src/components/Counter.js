@@ -17,6 +17,18 @@ export default function Counter() {
     dispatch(counterActions.decrement());
   }
 
+  function increaseHandler() {
+    dispatch(counterActions.increase(10));
+  }
+
+  function decreaseHandler() {
+    dispatch(counterActions.decrease(5));
+  }
+
+  function resetHandler() {
+    dispatch(counterActions.reset());
+  }
+
   function toggleCounterHandler() {
     setIsCounter(!isCounter);
   }
@@ -31,8 +43,16 @@ export default function Counter() {
   return (
     <main className={classes.counter}>
       {isCounter && counterContent}
+
       <button onClick={decrementHandler}>Decrement</button>
       <button onClick={incrementHandler}>Increment</button>
+      <div>
+        <button onClick={decreaseHandler}>Decrease by 5</button>
+        <button onClick={increaseHandler}>Increase by 10</button>
+      </div>
+      <div>
+        <button onClick={resetHandler}>RESET</button>
+      </div>
 
       <div>
         <button onClick={toggleCounterHandler}>Toggle Counter</button>
